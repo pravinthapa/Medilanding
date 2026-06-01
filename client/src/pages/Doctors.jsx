@@ -16,14 +16,14 @@ export default function Doctors() {
   const doctors = data?.data || [];
 
   return (
-    <div ref={pageRef}>
+    <div ref={pageRef} className="overflow-hidden">
       <PageHero
         image={HERO_IMAGES.doctors}
         title="Our Doctors"
         subtitle="Expert physicians with advanced qualifications and diverse specializations — here for you and your family."
       />
 
-      <Section className="bg-white dark:bg-slate-950">
+      <Section className="bg-slate-50 dark:bg-slate-900/50">
         <SectionHeading
           center
           eyebrow="Medical Team"
@@ -41,16 +41,16 @@ export default function Doctors() {
         )}
       </Section>
 
-      <Section className="bg-slate-50 dark:bg-slate-900/50">
-        <div className="gsap-reveal glass-card grid gap-8 p-8 md:grid-cols-3">
+      <Section className="bg-white dark:bg-slate-950">
+        <div className="gsap-reveal glass-card grid gap-8 p-10 md:grid-cols-3 border-t-4 border-t-primary-500">
           {[
             { title: 'Qualifications', text: 'MD, board certifications, fellowships, and continuing medical education.' },
             { title: 'Specializations', text: 'Cardiology, neurology, pediatrics, orthopedics, and primary care.' },
             { title: 'Patient-Centered', text: 'Collaborative care plans with clear communication at every visit.' },
           ].map((item) => (
             <div key={item.title}>
-              <h3 className="font-bold text-slate-900 dark:text-white">{item.title}</h3>
-              <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">{item.text}</p>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white">{item.title}</h3>
+              <p className="mt-3 text-base text-slate-600 dark:text-slate-400">{item.text}</p>
             </div>
           ))}
         </div>

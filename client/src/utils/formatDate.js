@@ -18,8 +18,11 @@ export const formatDateTime = (dateStr) => {
   });
 };
 
-export const getImageUrl = (path) => {
-  if (!path) return 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop';
+export const getImageUrl = (path, name = 'User') => {
+  if (!path) {
+    const formattedName = encodeURIComponent(name);
+    return `https://ui-avatars.com/api/?name=${formattedName}&background=0D8ABC&color=fff&size=400&rounded=false`;
+  }
   if (path.startsWith('http')) return path;
   const base = import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:5000';
   return `${base}${path}`;
