@@ -29,14 +29,12 @@ export default function Home() {
         }
         subtitle={CLINIC_INTRO.description}
       >
-        <div className="flex flex-wrap gap-4">
-          <Link to="/appointments" className="btn-primary">
-            Book Appointment <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-          </Link>
-          <Link to="/about" className="btn-outline">
-            About Our Clinic
-          </Link>
-        </div>
+        <Link to="/appointments" className="btn-primary">
+          Book Appointment <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+        </Link>
+        <Link to="/about" className="btn-outline">
+          About Our Clinic
+        </Link>
       </PageHero>
 
       <Section className="bg-white dark:bg-slate-950">
@@ -64,30 +62,39 @@ export default function Home() {
       </Section>
 
       <Section className="bg-slate-50 dark:bg-slate-900/50">
-        <SectionHeading
-          center
-          eyebrow="What We Offer"
-          title="Services Overview"
-          description="Comprehensive care from consultation to specialized treatment — all under one roof."
-        />
+        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-12 gap-4">
+          <SectionHeading
+            eyebrow="What We Offer"
+            title="Services Overview"
+            description="Comprehensive care from consultation to specialized treatment."
+          />
+          <div className="gsap-reveal shrink-0">
+            <Link to="/services" className="group inline-flex items-center justify-center gap-2 rounded-full border-2 border-primary-100 bg-white px-6 py-2.5 text-sm font-bold text-primary-700 transition-all hover:border-primary-600 hover:bg-primary-600 hover:text-white hover:shadow-lg hover:shadow-primary-600/30 dark:border-slate-800 dark:bg-slate-900 dark:text-primary-400 dark:hover:border-primary-500 dark:hover:bg-primary-600 dark:hover:text-white">
+              View All Services <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+        </div>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.slice(0, 6).map((s) => (
             <ServiceCard key={s.id} service={s} />
           ))}
         </div>
-        <div className="mt-12 text-center">
-          <Link to="/services" className="btn-outline-dark px-8">
-            View All Services
-          </Link>
-        </div>
       </Section>
 
       <Section className="bg-white dark:bg-slate-950">
-        <SectionHeading
-          eyebrow="Expert Team"
-          title="Featured Doctors"
-          description="Board-certified specialists dedicated to personalized patient care."
-        />
+        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-12 gap-4">
+          <SectionHeading
+            eyebrow="Expert Team"
+            title="Featured Doctors"
+            description="Board-certified specialists dedicated to personalized patient care."
+          />
+          <div className="gsap-reveal shrink-0">
+            <Link to="/doctors" className="group inline-flex items-center justify-center gap-2 rounded-full border-2 border-primary-100 bg-white px-6 py-2.5 text-sm font-bold text-primary-700 transition-all hover:border-primary-600 hover:bg-primary-600 hover:text-white hover:shadow-lg hover:shadow-primary-600/30 dark:border-slate-800 dark:bg-slate-900 dark:text-primary-400 dark:hover:border-primary-500 dark:hover:bg-primary-600 dark:hover:text-white">
+              Meet the Full Team <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+        </div>
+        
         {isLoading ? (
           <PageLoader />
         ) : (
@@ -97,11 +104,6 @@ export default function Home() {
             ))}
           </div>
         )}
-        <div className="mt-12 text-center">
-          <Link to="/doctors" className="group inline-flex items-center gap-2 font-semibold text-primary-600 transition-colors hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300">
-            Meet the Full Team <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Link>
-        </div>
       </Section>
 
       <section className="relative overflow-hidden bg-primary-900 py-24">

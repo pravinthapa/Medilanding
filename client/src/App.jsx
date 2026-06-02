@@ -7,6 +7,7 @@ import DashboardLayout from './components/layout/DashboardLayout';
 import Home from './pages/Home';
 import About from './pages/About';
 import Doctors from './pages/Doctors';
+import DoctorDetail from './pages/DoctorDetail';
 import Services from './pages/Services';
 import Appointments from './pages/Appointments';
 import Contact from './pages/Contact';
@@ -29,6 +30,7 @@ export default function App() {
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="doctors" element={<Doctors />} />
+            <Route path="doctors/:id" element={<DoctorDetail />} />
             <Route path="services" element={<Services />} />
             <Route path="appointments" element={<Appointments />} />
             <Route path="contact" element={<Contact />} />

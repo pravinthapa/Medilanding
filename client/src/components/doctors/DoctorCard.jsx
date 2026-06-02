@@ -5,7 +5,7 @@ import { getImageUrl } from '../../utils/formatDate';
 export default function DoctorCard({ doctor }) {
   return (
     <article className="gsap-reveal group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:border-slate-800 dark:bg-slate-900/80 dark:hover:shadow-[0_8px_30px_rgb(0,0,0,0.3)]">
-      <div className="relative aspect-[4/5] w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
+      <Link to={`/doctors/${doctor._id}`} className="relative aspect-[4/5] w-full overflow-hidden bg-slate-100 dark:bg-slate-800 block">
         <img
           src={getImageUrl(doctor.image, doctor.name)}
           alt={doctor.name}
@@ -18,7 +18,7 @@ export default function DoctorCard({ doctor }) {
             {doctor.specialization}
           </p>
         </div>
-      </div>
+      </Link>
       
       <div className="flex flex-1 flex-col p-5">
         <div className="space-y-2.5">
